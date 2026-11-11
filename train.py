@@ -14,7 +14,12 @@ def roast_category(roast):
 
     return categories.get(roast, float("nan"))
 
-df = pd.read_csv("coffee_analysis.csv")
+url = (
+    "https://raw.githubusercontent.com/leontoddjohnson/"
+    "datasets/refs/heads/main/data/coffee_analysis.csv"
+)
+
+df = pd.read_csv(url)
 
 # Convert roast categories into numerical values
 df["roast_cat"] = df["roast"].map(roast_category)

@@ -4,6 +4,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 
 def roast_category(roast):
+    """Convert a roast name to a numeric category or NaN"""
     categories = {
         "Light": 0,
         "Medium-Light": 1,
@@ -23,11 +24,6 @@ df = pd.read_csv(url)
 
 # Convert roast categories into numerical values
 df["roast_cat"] = df["roast"].map(roast_category)
-
-# Check the results
-print(df[["roast", "roast_cat"]].head(10))
-
-print(df.head())
 
 # Select the feature used to make predictions
 X = df[["100g_USD"]]
